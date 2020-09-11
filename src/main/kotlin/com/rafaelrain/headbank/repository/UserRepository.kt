@@ -27,9 +27,8 @@ class UserRepository(application: Application) {
         jedis.hset(hash, user.name, mapper.writeValueAsString(user))
     }
 
-    fun delete(name: String) {
-        val status = jedis.hdel(hash, name)
-        println(status)
+    fun delete(name: String): Boolean {
+        return jedis.hdel(hash, name) == 1L
     }
 
 }

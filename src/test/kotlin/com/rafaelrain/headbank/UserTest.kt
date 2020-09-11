@@ -32,7 +32,7 @@ class UserTest {
     }
 
     @Test
-    fun `should not return no one error`() {
+    fun `should not return no one error when creating the user`() {
         assertDoesNotThrow {
             "/users"
                 .httpPost()
@@ -44,13 +44,12 @@ class UserTest {
                         "money": "500"
                     }
                 """.trimIndent()
-                ).also { println(it) }
-                .response()
+                ).response()
         }
     }
 
     @Test
-    fun `should return the user`() {
+    fun `should return the user without errors`() {
         val (_, _, result) = "/users/cornao".httpGet().responseObject<User>()
 
         assertEquals(
