@@ -32,15 +32,15 @@ class UserTest {
     }
 
     @Test
-    fun `should not return no one error when creating the user`() {
+    fun `should get success when creating the user`() {
         assertDoesNotThrow {
             "/users"
                 .httpPost()
                 .jsonBody(
                     """ 
                     {
-                        "name": "cornao",
-                        "gender" : "FEMALE",
+                        "name": "joaozinho",
+                        "gender" : "MALE",
                         "money": "500"
                     }
                 """.trimIndent()
@@ -50,17 +50,17 @@ class UserTest {
 
     @Test
     fun `should return the user without errors`() {
-        val (_, _, result) = "/users/cornao".httpGet().responseObject<User>()
+        val (_, _, result) = "/users/joaozinho".httpGet().responseObject<User>()
 
         assertEquals(
-            User("cornao", Gender.FEMALE, 500),
+            User("joaozinho", Gender.MALE, 500),
             result.get()
         )
     }
 
     @Test
     fun `should get error for non-existing user`() {
-        val (_, _, result) = "/users/kakakaka".httpGet().responseObject<User>()
+        val (_, _, result) = "/users/aaaaaaaaa".httpGet().responseObject<User>()
 
         val (_, error) = result
 
@@ -70,7 +70,7 @@ class UserTest {
     @Test
     fun `should get no error when deleting a user`() {
         assertDoesNotThrow {
-            "/users/cornao".httpDelete().response()
+            "/users/joaozinho".httpDelete().response()
         }
     }
 }

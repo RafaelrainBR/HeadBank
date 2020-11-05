@@ -18,8 +18,9 @@ class Application {
 
     init {
         try {
-            jedis = Jedis("localhost")
-            jedis.connect()
+            jedis = Jedis("localhost").also {
+                it.connect()
+            }
 
             app = Javalin.create().apply {
                 routes {

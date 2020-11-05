@@ -20,9 +20,9 @@ class UserController : CrudHandler {
     }
 
     override fun delete(ctx: Context, resourceId: String) {
-        val status = repository.delete(resourceId)
+        val status = if (repository.delete(resourceId)) 200 else 500
 
-        ctx.status(if (status) 200 else 500)
+        ctx.status(status)
     }
 
     override fun getAll(ctx: Context) {
