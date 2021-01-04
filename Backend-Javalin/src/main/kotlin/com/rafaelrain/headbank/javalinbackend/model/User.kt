@@ -1,4 +1,4 @@
-package com.rafaelrain.headbank.model
+package com.rafaelrain.headbank.javalinbackend.model
 
 data class User(
     val name: String,

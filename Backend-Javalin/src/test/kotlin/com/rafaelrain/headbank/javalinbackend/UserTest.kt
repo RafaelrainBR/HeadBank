@@ -1,4 +1,4 @@
-package com.rafaelrain.headbank
+package com.rafaelrain.headbank.javalinbackend
 
 import com.github.kittinunf.fuel.core.FuelManager
 import com.github.kittinunf.fuel.core.extensions.jsonBody
@@ -6,9 +6,9 @@ import com.github.kittinunf.fuel.httpDelete
 import com.github.kittinunf.fuel.httpGet
 import com.github.kittinunf.fuel.httpPost
 import com.github.kittinunf.fuel.jackson.responseObject
-import com.rafaelrain.headbank.model.Gender
-import com.rafaelrain.headbank.model.User
-import com.rafaelrain.headbank.util.inject
+import com.rafaelrain.headbank.javalinbackend.model.Gender
+import com.rafaelrain.headbank.javalinbackend.model.User
+import com.rafaelrain.headbank.javalinbackend.util.inject
 import org.junit.jupiter.api.*
 import org.junit.jupiter.api.Assertions.assertEquals
 

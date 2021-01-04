@@ -1,4 +1,4 @@
-package com.rafaelrain.headbank.util
+package com.rafaelrain.headbank.javalinbackend.util
 
 import org.koin.core.context.GlobalContext
 

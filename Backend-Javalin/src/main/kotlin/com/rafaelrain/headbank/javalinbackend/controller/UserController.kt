@@ -1,10 +1,10 @@
-package com.rafaelrain.headbank.controller
+package com.rafaelrain.headbank.javalinbackend.controller
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.rafaelrain.headbank.exception.UserNotFoundException
-import com.rafaelrain.headbank.model.User
-import com.rafaelrain.headbank.repository.UserRepository
-import com.rafaelrain.headbank.util.inject
+import com.rafaelrain.headbank.javalinbackend.exception.UserNotFoundException
+import com.rafaelrain.headbank.javalinbackend.model.User
+import com.rafaelrain.headbank.javalinbackend.repository.UserRepository
+import com.rafaelrain.headbank.javalinbackend.util.inject
 import io.javalin.apibuilder.CrudHandler
 import io.javalin.http.Context
 

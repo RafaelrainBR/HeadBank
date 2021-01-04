@@ -1,8 +1,8 @@
-package com.rafaelrain.headbank.security
+package com.rafaelrain.headbank.javalinbackend.security
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.rafaelrain.headbank.Application
-import com.rafaelrain.headbank.util.inject
+import com.rafaelrain.headbank.javalinbackend.Application
+import com.rafaelrain.headbank.javalinbackend.util.inject
 import io.javalin.core.security.Role
 import io.javalin.http.Context
 

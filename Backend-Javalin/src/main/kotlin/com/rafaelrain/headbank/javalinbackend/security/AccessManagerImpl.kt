@@ -1,4 +1,4 @@
-package com.rafaelrain.headbank.security
+package com.rafaelrain.headbank.javalinbackend.security
 
 import io.javalin.core.security.AccessManager
 import io.javalin.core.security.Role

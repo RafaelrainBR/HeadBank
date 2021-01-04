@@ -1,12 +1,12 @@
-package com.rafaelrain.headbank
+package com.rafaelrain.headbank.javalinbackend
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.registerKotlinModule
-import com.rafaelrain.headbank.controller.UserController
-import com.rafaelrain.headbank.exception.UserNotFoundException
-import com.rafaelrain.headbank.repository.UserRepository
-import com.rafaelrain.headbank.security.AccessManagerImpl
-import com.rafaelrain.headbank.security.AccessRole
+import com.rafaelrain.headbank.javalinbackend.controller.UserController
+import com.rafaelrain.headbank.javalinbackend.exception.UserNotFoundException
+import com.rafaelrain.headbank.javalinbackend.repository.UserRepository
+import com.rafaelrain.headbank.javalinbackend.security.AccessManagerImpl
+import com.rafaelrain.headbank.javalinbackend.security.AccessRole
 import io.javalin.Javalin
 import io.javalin.apibuilder.ApiBuilder.crud
 import io.javalin.core.security.SecurityUtil.roles

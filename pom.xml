@@ -11,6 +11,7 @@
 
     <modules>
         <module>Backend-Javalin</module>
+        <module>Backend-Spring</module>
     </modules>
 
     <properties>

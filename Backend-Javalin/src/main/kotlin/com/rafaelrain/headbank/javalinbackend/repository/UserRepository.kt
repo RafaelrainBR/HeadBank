@@ -1,10 +1,10 @@
-package com.rafaelrain.headbank.repository
+package com.rafaelrain.headbank.javalinbackend.repository
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
-import com.rafaelrain.headbank.Application
-import com.rafaelrain.headbank.model.User
-import com.rafaelrain.headbank.util.inject
+import com.rafaelrain.headbank.javalinbackend.Application
+import com.rafaelrain.headbank.javalinbackend.model.User
+import com.rafaelrain.headbank.javalinbackend.util.inject
 
 class UserRepository(application: Application) {
 
