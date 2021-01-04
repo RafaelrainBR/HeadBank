@@ -2,16 +2,16 @@ package com.rafaelrain.headbank.repository
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
-import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 import com.rafaelrain.headbank.Application
 import com.rafaelrain.headbank.model.User
+import com.rafaelrain.headbank.util.inject
 
 class UserRepository(application: Application) {
 
     private val hash = "BANK_USERS"
 
     private val jedis = application.jedis
-    private val mapper = ObjectMapper().registerKotlinModule()
+    private val mapper: ObjectMapper by inject()
 
     fun get(name: String): User? {
         return jedis.hget(hash, name)?.let { mapper.readValue(it) }

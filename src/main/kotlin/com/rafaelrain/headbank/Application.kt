@@ -1,5 +1,7 @@
 package com.rafaelrain.headbank
 
+import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 import com.rafaelrain.headbank.controller.UserController
 import com.rafaelrain.headbank.exception.UserNotFoundException
 import com.rafaelrain.headbank.repository.UserRepository
@@ -36,6 +38,10 @@ class Application {
             println("Failed to initialize the application.")
             exitProcess(1)
         }
+
+        Runtime.getRuntime().addShutdownHook(Thread {
+            stop()
+        })
     }
 
     fun stop() {
@@ -48,6 +54,7 @@ class Application {
             startKoin {
                 modules(
                     module(true) {
+                        single { ObjectMapper().registerKotlinModule() }
                         single { Application() }
                         single { UserRepository(get()) }
                     }
