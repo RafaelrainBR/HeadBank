@@ -36,6 +36,7 @@ class UserTest {
         assertDoesNotThrow {
             "/users"
                 .httpPost()
+                .header("key", "defaultKey")
                 .jsonBody(
                     """ 
                     {
@@ -49,8 +50,18 @@ class UserTest {
     }
 
     @Test
-    fun `should return the user without errors`() {
+    fun `should get error for not supply the key`() {
         val (_, _, result) = "/users/joaozinho".httpGet().responseObject<User>()
+
+        assertEquals(401, result.component2()!!.response.statusCode)
+    }
+
+    @Test
+    fun `should return the user without errors`() {
+        val (_, _, result) = "/users/joaozinho"
+            .httpGet()
+            .header("key", "defaultKey")
+            .responseObject<User>()
 
         assertEquals(
             User("joaozinho", Gender.MALE, 500),
@@ -60,7 +71,10 @@ class UserTest {
 
     @Test
     fun `should get error for non-existing user`() {
-        val (_, _, result) = "/users/aaaaaaaaa".httpGet().responseObject<User>()
+        val (_, _, result) = "/users/aaaaaaaaa"
+            .httpGet()
+            .header("key", "defaultKey")
+            .responseObject<User>()
 
         val (_, error) = result
 
@@ -70,7 +84,10 @@ class UserTest {
     @Test
     fun `should get no error when deleting a user`() {
         assertDoesNotThrow {
-            "/users/joaozinho".httpDelete().response()
+            "/users/joaozinho"
+                .httpDelete()
+                .header("key", "defaultKey")
+                .response()
         }
     }
 }
